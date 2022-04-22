@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+    <title></title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css">
+        {% endblock %}
+    </head>
+<body>
+{% block content %}
+<form class="form-horizontal" method="post" action="{{ url_for('predict') }}">
+<fieldset>
+<!-- Form Name -->
+<legend>Classifier</legend>
+<!-- Text input-->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="input1">Input</label>
+  <div class="col-md-4">
+  <input id="input1" name="image" type="text" placeholder="Enter image url" class="form-control input-md">
+  </div>
+</div>
+<!-- Button -->
+<div class="form-group">
+  <label class="col-md-4 control-label" for="singlebutton"></label>
+  <div class="col-md-4">
+    <button id="singlebutton" name="singlebutton" class="btn btn-primary">Predict</button>
+  </div>
+</div>
+</fieldset>
+</form>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<div style="text-align:center">
+    <h1>{{ prediction_text }}</h1></div>
+<div style="text-align:center">
+    <image src="{{url_for('static',filename = 'url_image.jpg')}}"></image></div>
+{% endblock %}
+</body>
+</html>
